@@ -1,4 +1,4 @@
-#include <io.h>
+#include <unistd.h>
 
 /**
  * main - print sizes
