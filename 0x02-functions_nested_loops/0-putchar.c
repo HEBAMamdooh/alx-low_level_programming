@@ -11,8 +11,9 @@
 int main(void)
 {
 	char quote[] = "_putchar";
+	int c;
 
-	for (int c = 0; c < 8; c++)
+	for (c = 0; c < 8; c++)
 		_putchar(quote[c]);
 	_putchar('\n');
 	return (0);
