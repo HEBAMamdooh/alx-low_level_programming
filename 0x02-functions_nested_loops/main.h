@@ -11,6 +11,7 @@
  * _isalpha : checks for alphabetic character.
  * print_sign : prints the sign of a number.
  * _abs :  computes the absolute value of an integer.
+ * print_last_digit :  prints the last digit of a number.
 */
 
 int _putchar(char character);
@@ -20,6 +21,7 @@ int _islower(int c);
 int _isalpha(int);
 int print_sign(int);
 int _abs(int);
+int print_last_digit(int);
 
 #endif
 
