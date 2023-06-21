@@ -8,10 +8,11 @@
 
 int main(void)
 {
-	int x = 0;
-	int y = 1;
-	unsigned long sum;
+	unsigned long x, y, sum;
 	int i;
+
+	x = 0;
+	y = 1;
 
 	for (i = 0; i < 50; i++)
 	{
