@@ -2,7 +2,7 @@
 
 /**
  * print_to_98 - print all natural numbers from input n to 98
- * 
+ *
  * @n: starting point
  *
  * Return: void nothing to return.
