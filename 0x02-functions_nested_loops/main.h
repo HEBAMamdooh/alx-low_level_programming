@@ -14,6 +14,7 @@
  * print_last_digit :  prints the last digit of a number.
  * jack_bauer : prints every minute of the day of Jack Bauer, starting from 00:00 to 23:59.
  * times_table : prints the 9 times table, starting with 0.
+ * add : adds two integers and returns the result.
 */
 
 int _putchar(char character);
@@ -26,6 +27,7 @@ int _abs(int);
 int print_last_digit(int);
 void jack_bauer(void);
 void times_table(void);
+int add(int, int);
 
 #endif
 
