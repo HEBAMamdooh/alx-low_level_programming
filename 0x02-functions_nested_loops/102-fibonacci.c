@@ -6,12 +6,13 @@
  * Return: Nothing.
 */
 
-int main() 
+int main(void)
 {
 	int x = 0;
 	int y = 1;
 	unsigned long sum;
 	int i;
+
 	for (i = 0; i < 50; i++)
 	{
 		sum = x + y;
@@ -19,6 +20,7 @@ int main()
 		x = y;
 		y = sum;
 	}
-	printf("%lu\n",sum + x);
+
+	printf("%lu\n", sum + x);
 	return (0);
 }
