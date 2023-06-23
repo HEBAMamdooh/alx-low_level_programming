@@ -1,5 +1,5 @@
-#include "main.h"
 #include <stdio.h>
+
 /**
  * main - Fizz-Buzz test
  *
@@ -7,13 +7,13 @@
  * multiples of 5 with Buzz, and multiples of both with FizzBuzz.
  *
  * Return: 0 -> success
- **/
+*/
 
 int main(void)
 {
 	int n;
 
-	for (n = 1; n < 100; n++)
+	for (n = 1; n <= 100; n++)
 	{
 		if (n % 3 == 0 && n % 5 == 0)
 			printf("FizzBuzz ");
@@ -24,6 +24,6 @@ int main(void)
 		else
 			printf("%d ", n);
 	}
-	printf("Buzz\n");
+	printf("\n");
 	return (0);
 }
