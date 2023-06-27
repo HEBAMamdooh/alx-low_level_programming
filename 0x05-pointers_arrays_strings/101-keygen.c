@@ -16,17 +16,15 @@
 
 int main(void)
 {
-	int pass_length;
-
-	pass_length = 10;
-	char password[pass_length];
+	char password[10];
 
 	int i;
 
 	time_t t;
+
 	srand((unsigned int)time(&t));
 
-	for (i = 0; i < pass_length; i++)
+	for (i = 0; i < 10; i++)
 		password[i] = (char)(rand() % 128);
 
 	printf("Tada! Congrats");
