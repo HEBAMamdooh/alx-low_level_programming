@@ -27,7 +27,6 @@ int main(void)
 	for (i = 0; i < 10; i++)
 		password[i] = (char)(rand() % 128);
 
-	printf("Tada! Congrats");
-
+	printf("%s\n", password);
 	return (0);
 }
