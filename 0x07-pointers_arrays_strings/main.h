@@ -1,6 +1,8 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+#include <stdio>
+
 /**
  * putchar - prints one character only.
  * _memset - fills memory with a constant byte
