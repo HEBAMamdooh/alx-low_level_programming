@@ -9,7 +9,8 @@
  * factorial -  returns the factorial of a given number.
  * _pow_recursion -  the value of x raised to the power of y.
  * _pow_recursion -  the natural square root of a number.
-* is_prime_number -  determine the prime number.
+ * is_prime_number -  determine the prime number.
+ * is_palindrome - checks if string is a palindrome
 */
 
 int _putchar(char c);
@@ -20,6 +21,7 @@ int factorial(int n);
 int _pow_recursion(int x, int y);
 int _sqrt_recursion(int n);
 int is_prime_number(int n);
+int is_palindrome(char *s);
 
 #endif /* MAIN_H */
 
