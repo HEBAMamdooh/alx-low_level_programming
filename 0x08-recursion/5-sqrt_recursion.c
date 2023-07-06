@@ -17,8 +17,7 @@ int sqrt_num(int n, int sqrt)
 
 	if (n < sqrt * sqrt)
 		return (-1);
-
-	sqrt_num(n, sqrt + 1);
+	return (sqrt_num(n, sqrt + 1));
 }
 
 
