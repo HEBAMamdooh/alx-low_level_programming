@@ -11,6 +11,7 @@
  * _pow_recursion -  the natural square root of a number.
  * is_prime_number -  determine the prime number.
  * is_palindrome - checks if string is a palindrome
+ * wildcmp - compare 2 strings, returns 1 identical, 0 if not.
 */
 
 int _putchar(char c);
@@ -22,6 +23,7 @@ int _pow_recursion(int x, int y);
 int _sqrt_recursion(int n);
 int is_prime_number(int n);
 int is_palindrome(char *s);
+int wildcmp(char *s1, char *s2);
 
 #endif /* MAIN_H */
 
