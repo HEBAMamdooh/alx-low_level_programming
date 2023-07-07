@@ -10,8 +10,8 @@
  * _pow_recursion -  the value of x raised to the power of y.
  * _pow_recursion -  the natural square root of a number.
  * is_prime_number -  determine the prime number.
- * is_palindrome - checks if string is a palindrome
- * wildcmp - compare 2 strings, returns 1 identical, 0 if not.
+ * is_palindrome - checks if string is a palindrome.
+ * wildcmp - compares two strings.
 */
 
 int _putchar(char c);
@@ -26,4 +26,3 @@ int is_palindrome(char *s);
 int wildcmp(char *s1, char *s2);
 
 #endif /* MAIN_H */
-
