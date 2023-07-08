@@ -1,5 +1,5 @@
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 /**
  * main - prints the minimum number of coins
@@ -12,10 +12,10 @@
  */
 
 
+
 int main(int argc, char *argv[])
 {
 	int coins[] = {25, 10, 5, 2, 1};
-
 	if (argc != 2)
 	{
 		printf("Error\n");
@@ -24,21 +24,28 @@ int main(int argc, char *argv[])
 
 	int cents = atoi(argv[1]);
 
-	if (cents < 0)
-	{
+	if (cents < 0) {
 		printf("0\n");
 		return (0);
 	}
 
-	int num_coins = 0;
+	int num_coins[5] = {0};
+	
+	int i = 0;
 
-	for (int i = 0; i < 5; i++)
+	while (cents > 0)
 	{
-		num_coins += cents / coins[i];
+		num_coins[i] = cents / coins[i];
 		cents %= coins[i];
+		i++;
 	}
 
-	printf("%d\n", num_coins);
+	int total_coins = 0;
+
+	for (int j = 0; j < 5; j++)
+		total_coins += num_coins[j];
+
+	printf("%d\n", total_coins);
 
 	return (0);
 }
