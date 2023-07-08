@@ -23,15 +23,15 @@ int check_num(char *str)
 }
 
 /**
- * sum - sum two numbers.
+ * main - sum two numbers.
  *
  * @argc: number of arguments.
  * @argv: arguments entered.
  *
  * Return: 0 on success, 1 (Error) if not.
-*/
+ */
 
-int sum(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
 	int sum, i;
 

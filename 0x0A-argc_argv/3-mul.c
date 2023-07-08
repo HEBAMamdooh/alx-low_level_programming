@@ -3,15 +3,15 @@
 #include "main.h"
 
 /**
- * multiply - multiplies two numbers.
+ * main - multiplies two numbers.
  *
  * @argc: number of arguments.
  * @argv: arguments entered.
  *
  * Return: 0 on success, 1 (Error) if not.
-*/
+ */
 
-int multiply(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
 	int num1, num2;
 	char *s1 = argv[1];

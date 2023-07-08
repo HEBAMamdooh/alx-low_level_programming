@@ -3,16 +3,16 @@
 #include "main.h"
 
 /**
- * change - prints the minimum number of coins
+ * main - prints the minimum number of coins
  *		to make change for an amount of money.
  *
  * @argc: number of arguments.
  * @argv: arguments entered.
  *
  * Return: 0 on success, 1 if not.
-*/
+ */
 
-int change(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
 	if (argc == 2)
 	{

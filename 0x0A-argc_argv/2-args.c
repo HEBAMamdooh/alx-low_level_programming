@@ -2,15 +2,15 @@
 #include "main.h"
 
 /**
- * print_all - prints all arguments it receives.
+ * main - prints all arguments it receives.
  *
  * @argc: number of arguments.
  * @argv: arguments entered.
  *
  * Return: 0 on success.
-*/
+ */
 
-int print_all(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
 	int n;
 
