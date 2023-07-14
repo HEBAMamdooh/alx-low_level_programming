@@ -46,8 +46,8 @@ int str_to_int(char *str)
 /**
  * main -  multiplies two positive numbers.
  *
- * @size: size of array
- * @c: assigned char
+ * @argc: number of arguments.
+ * @argv: arguments entered.
  *
  * Return: Always 0
 */
