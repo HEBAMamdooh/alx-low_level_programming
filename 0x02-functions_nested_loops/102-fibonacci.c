@@ -14,7 +14,7 @@ int main(void)
 	x = 0;
 	y = 1;
 
-	for (i = 0; i < 50; i++)
+	for (i = 0; i < 49; i++)
 	{
 		sum = x + y;
 		printf("%lu, ", sum);
