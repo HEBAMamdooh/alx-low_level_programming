@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * print_name - searches for an integer.
+ * int_index - searches for an integer.
  *
  * @size: The number of elements in the array.
  * @array: An array tlo search in.
