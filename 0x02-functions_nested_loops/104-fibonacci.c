@@ -4,24 +4,32 @@
  * main - print the first 50 fibonacci numbers
  *
  * Return: Nothing.
- */
+*/
 
 int main(void)
 {
 	unsigned long x, y, sum;
-	int i;
 
-	x = 0;
-	y = 1;
+	int count;
 
-	for (i = 0; i < 97; i++)
+	x = 1;
+	y = 2;
+	count = 2;
+
+	printf("%lu, %lu, ", x, y);
+
+	while (count < 98)
 	{
 		sum = x + y;
-		printf("%lu, ", sum);
 		x = y;
 		y = sum;
+		printf("%lu, ", sum);
+
+
+		count++;
 	}
 
-	printf("%lu\n", sum + x);
+	printf("\n");
+
 	return (0);
 }
