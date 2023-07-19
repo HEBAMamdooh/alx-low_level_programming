@@ -3,7 +3,8 @@
 /**
  * print_name - prints a name.
  *
- * @d: The dog object.
+ * @name: string to add
+ * @f: pointer to function
  *
  * Return: nothing.
 */
