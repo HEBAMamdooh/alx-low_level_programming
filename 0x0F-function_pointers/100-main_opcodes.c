@@ -28,7 +28,9 @@ void main(int argc, char *argv[])
 
 	char *main_ptr = (char *)main;
 
-	for (int i = 0; i < num_bytes; i++)
+	int i;
+
+	for (i = 0; i < num_bytes; i++)
 		printf("%02x ", *(main_ptr + i) & 0xff);
 
 	printf("\n");
