@@ -30,7 +30,7 @@ void main(int argc, char *argv[])
 
 	for (int i = 0; i < num_bytes; i++)
 		printf("%02x ", *(main_ptr + i) & 0xff);
-	
+
 	printf("\n");
 }
 
