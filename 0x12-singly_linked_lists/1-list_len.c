@@ -3,7 +3,7 @@
 /**
  * list_len - Returns number of elements in a linked list.
  *
- * @hh: Pointer to the list.
+ * @h: Pointer to the list.
  *
  * Return: Number of nodes.
 */
