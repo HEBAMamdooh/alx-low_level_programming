@@ -12,10 +12,12 @@
  * print_sign : prints the sign of a number.
  * _abs :  computes the absolute value of an integer.
  * print_last_digit :  prints the last digit of a number.
- * jack_bauer : prints every minute of the day of Jack Bauer, starting from 00:00 to 23:59.
+ * jack_bauer : prints every minute of the day of Jack Bauer,
+ *		starting from 00:00 to 23:59.
  * times_table : prints the 9 times table, starting with 0.
  * add : adds two integers and returns the result.
- * print_to_98 : prints all natural numbers from n to 98, followed by a new line.
+ * print_to_98 : prints all natural numbers from n to 98,
+ *		followed by a new line.
  * print_times_table :  prints the n times table, starting with 0.
 */
 
@@ -33,5 +35,4 @@ int add(int, int);
 void print_to_98(int n);
 void print_times_table(int n);
 
-#endif
-
+#endif /* MAIN_H */
