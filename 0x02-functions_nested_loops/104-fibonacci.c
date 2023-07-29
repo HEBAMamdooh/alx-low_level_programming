@@ -12,7 +12,7 @@
 int main(void)
 {
 	int count;
-	long long fib[100];
+	unsigned long fib[100];
 
 	fib[0] = 1;
 	fib[1] = 2;
