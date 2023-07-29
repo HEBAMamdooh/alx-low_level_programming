@@ -4,6 +4,8 @@
  * more_numbers : prints 10 times the numbers, from 0 to 14,
  *		followed by a new line.
  *
+ * Description: prints from 0 to 14 in 10 lines, followed by a new line.
+ *
  * Return: nothing
  **/
 
