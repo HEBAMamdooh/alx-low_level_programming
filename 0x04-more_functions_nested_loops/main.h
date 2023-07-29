@@ -3,23 +3,6 @@
 
 #include <unistd.h>
 
-/**
- * _putchar : prints a character.
- * _isupper : to check letter type
- * _isdigit : checks for a digit (0 through 9).
- * mul : a function that multiplies two integers.
- * print_numbers : prints the numbers, from 0 to 9, followed by a new line.
- * print_most_numbers : prints the numbers, from 0 to 9
- *			followed by a new line, except 2 , 4.
- * more_numbers : prints 10 times the numbers 0 -> 14,
- *			followed by a new line.
- * print_line : draws a straight line in the terminal.
- * print_diagonal : draws a diagonal line on the terminal.
- * print_square : prints a square, followed by a new line.
- * print_triangle : prints a triangle, followed by a new line.
- * print_numbers -  prints a number.
-*/
-
 int _putchar(char c);
 int _isupper(int);
 int _isdigit(int n);
