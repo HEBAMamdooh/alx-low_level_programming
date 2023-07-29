@@ -24,7 +24,7 @@ int main(void)
 
 	for (count = 0; count < 98; count++)
 	{
-		printf("%lld, ", fib[count]);
+		printf("%lu, ", fib[count]);
 	}
 	printf("\n");
 
