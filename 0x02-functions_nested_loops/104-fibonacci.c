@@ -11,26 +11,21 @@
 
 int main(void)
 {
-	unsigned long x, y, sum;
-
 	int count;
+	long long fib[100];
 
-	x = 1;
-	y = 2;
-	count = 2;
+	fib[0] = 1;
+	fib[1] = 2;
 
-	printf("%lu, %lu, ", x, y);
-
-	while (count < 98)
+	for (count = 2; count < 100; count++)
 	{
-		sum = x + y;
-		x = y;
-		y = sum;
-		printf("%lu, ", sum);
-
-		count++;
+		fib[count] = fib[count - 1] + fib[count - 2];
 	}
 
+	for (count = 0; count < 98; count++)
+	{
+		printf("%lld, ", fib[count]);
+	}
 	printf("\n");
 
 	return (0);
