@@ -3,7 +3,10 @@
 /**
  * main - print the first 50 fibonacci numbers
  *
- * Return: Nothing.
+ * Description: program that finds and prints the first 98 Fibonacci numbers,
+ *		starting with 1 and 2, followed by a new line.
+ *
+ * Return: 0 for success
 */
 
 int main(void)
@@ -24,7 +27,6 @@ int main(void)
 		x = y;
 		y = sum;
 		printf("%lu, ", sum);
-
 
 		count++;
 	}
