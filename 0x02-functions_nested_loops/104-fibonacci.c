@@ -12,6 +12,7 @@
 int main(void)
 {
 	int count;
+
 	long double fib[100];
 
 	fib[0] = 1;
