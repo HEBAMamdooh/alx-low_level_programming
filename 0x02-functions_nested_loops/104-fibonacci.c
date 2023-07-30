@@ -24,7 +24,7 @@ int main(void)
 
 	for (count = 0; count < 98; count++)
 	{
-		if (count != 98)
+		if (count != 97)
 			printf("%.0Lf, ", fib[count]);
 		else
 			printf("%.0Lf", fib[count]);
