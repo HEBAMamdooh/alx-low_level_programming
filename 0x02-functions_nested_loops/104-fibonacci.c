@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
- * main - print the first 50 fibonacci numbers
+ * main - print the first 98 fibonacci numbers
  *
  * Description: program that finds and prints the first 98 Fibonacci numbers,
  *		starting with 1 and 2, followed by a new line.
@@ -12,7 +12,7 @@
 int main(void)
 {
 	int count;
-	unsigned long fib[100];
+	long double fib[100];
 
 	fib[0] = 1;
 	fib[1] = 2;
