@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 /**
- * re_allo_memory - reallocates memory for an array of pointers
+ * _r - reallocates memory for an array of pointers
  *			to the nodes in a linked list.
  *
  * @list: The old list to append.
@@ -12,7 +12,7 @@
  *
  * Return: Pointer to the new list.
  */
-const listint_t **re_allo_memory(const listint_t **list, size_t size, const listint_t *new)
+const listint_t **_r(const listint_t **list, size_t size, const listint_t *new)
 {
 	const listint_t **newList;
 	size_t n;
@@ -60,7 +60,7 @@ size_t print_listint_safe(const listint_t *head)
 			}
 		}
 		num++;
-		list = re_allo_memory(list, num, head);
+		list = _r(list, num, head);
 		printf("[%p] %d\n", (void *)head, head->n);
 		head = head->next;
 	}
