@@ -1,6 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
-
+#include <fcntl.h>
 
 /**
  * create_file - reads a text file and prints it to the POSIX standard output.
