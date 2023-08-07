@@ -34,7 +34,8 @@ int _strlen(const char *s)
 
 int append_text_to_file(const char *filename, char *text_content)
 {
-	ssize_t bytes_written, file_descriptor;
+	int file_descriptor;
+	ssize_t bytes_written;
 
 	if (filename == NULL)
 		return (-1);
