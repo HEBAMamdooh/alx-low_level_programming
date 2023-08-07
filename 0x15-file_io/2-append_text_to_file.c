@@ -1,7 +1,26 @@
 #include "main.h"
 #include <fcntl.h>
 #include <stdlib.h>
-#include <string.h>
+#include <stdio.h>
+#include <unistd.h>
+
+/**
+ * _strlen - Returns the length of a string.
+ *
+ * @s : Pointer to string.
+ *
+ * Return: String length.
+ */
+int _strlen(const char *s)
+{
+	int c = 0;
+
+	while (s[c] != '\0')
+	{
+		c++;
+	}
+	return (c);
+}
 
 /**
  * append_text_to_file - Appends text at the end of a file.
@@ -27,12 +46,12 @@ int append_text_to_file(const char *filename, char *text_content)
 
 	if (text_content != NULL)
 	{
-		size_t text_length = strlen(text_content);
-		bytes_written = write(file_descriptor, text_content, text_length);
+		size_t text_length = _strlen(text_content);
+		bytes_written = fwrite(file_descriptor, text_content, text_length);
 
 		if (bytes_written == -1)
 		{
-			close(file_descriptor);
+			pclose(file_descriptor);
 			return (-1);
 		}
 	}
