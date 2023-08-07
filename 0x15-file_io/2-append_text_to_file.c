@@ -1,8 +1,8 @@
 #include "main.h"
-#include <fcntl.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
+#include <fcntl.h>
 
 /**
  * _strlen - Returns the length of a string.
@@ -34,8 +34,7 @@ int _strlen(const char *s)
 
 int append_text_to_file(const char *filename, char *text_content)
 {
-	int file_descriptor;
-	ssize_t bytes_written;
+	ssize_t bytes_written, file_descriptor;
 
 	if (filename == NULL)
 		return (-1);
