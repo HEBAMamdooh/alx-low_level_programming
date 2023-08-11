@@ -48,7 +48,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	buffer[chars_read] = '\0';
 
 	if (letters == 2000)
-		dup2(STDERR_FILENO, STDOUT_FILENO);
+		dprintf(STDERR_FILENO, "%s", buffer);
 
 	printf("%s", buffer);
 
