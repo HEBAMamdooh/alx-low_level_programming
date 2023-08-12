@@ -123,7 +123,7 @@ void handle_special_cases(int file_from)
 
 	if (bytes_read == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file\n");
+		fprintf(stderr, "Error: Can't read from file\n");
 		exit(98);
 	}
 
@@ -142,26 +142,15 @@ void handle_special_cases(int file_from)
 		case ELFOSABI_SORTIX:
 			printf("Case: Sortix 32-bit ELF file\n");
 			break;
+		default:
+			printf("Case: Unknown 32-bit ELF file\n");
+			break;
 		}
 	}
 	else if (header.e_ident[EI_CLASS] == ELFCLASS64)
-	{
 		printf("Case: Ubuntu 64-bit ELF file\n");
-		header.e_version = 2;
-
-		if (lseek(file_from, 0, SEEK_SET) == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't seek in file\n");
-			exit(98);
-		}
-
-		ssize_t bytes_written = write(file_from, &header, sizeof(header));
-		if (bytes_written == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't writeto file\n");
-			exit(99);
-		}
-	}
+	else
+		printf("Case: Unknown ELF file\n");
 
 	if (lseek(file_from, 0, SEEK_SET) == -1)
 	{
