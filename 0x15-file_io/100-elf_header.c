@@ -4,6 +4,27 @@
 #include <fcntl.h>
 #include <sys/stat.h>
 
+#define EI_NIDENT 16
+#define EI_DATA 5
+#define ELFDATA2MSB 2
+#define EI_CLASS 4
+#define ELFCLASS32 1
+#define ELFCLASS64 2
+#define EI_OSABI 7
+#define ELFOSABI_NETBSD 2
+#define ELFOSABI_SOLARIS 6
+#define ELFOSABI_SORTIX 9
+
+typedef struct
+{
+	unsigned char e_ident[EI_NIDENT];
+} Elf32_Ehdr;
+
+typedef struct
+{
+	unsigned char e_ident[EI_NIDENT];
+} Elf64_Ehdr;
+
 #define BUFFER_SIZE 1024
 
 /**
@@ -21,7 +42,7 @@ int open_files(char *file_from, char *file_to)
 	fd_from = open(file_from, O_RDONLY);
 	if (fd_from == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
+		fprintf(stderr, "Error: Can't read from file %s\n", file_from);
 		exit(98);
 	}
 
@@ -29,7 +50,7 @@ int open_files(char *file_from, char *file_to)
 				 S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
 	if (fd_to == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
+		fprintf(stderr, "Error: Can't write to %s\n", file_to);
 		exit(99);
 	}
 
@@ -53,14 +74,14 @@ void copy_files(int file_from, int file_to)
 		bytes_written = write(file_to, buffer, bytes_read);
 		if (bytes_written == -1)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't write to file\n");
+			fprintf(stderr, "Error: Can't write to file\n");
 			exit(99);
 		}
 	}
 
 	if (bytes_read == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file\n");
+		fprintf(stderr, "Error: Can't read from file\n");
 		exit(98);
 	}
 }
@@ -76,13 +97,13 @@ void close_files(int file_from, int file_to)
 {
 	if (close(file_from) == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from);
+		fprintf(stderr, "Error: Can't close fd %d\n", file_from);
 		exit(100);
 	}
 
 	if (close(file_to) == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_to);
+		fprintf(stderr, "Error: Can't close fd %d\n", file_to);
 		exit(100);
 	}
 }
@@ -96,7 +117,9 @@ void close_files(int file_from, int file_to)
 void handle_special_cases(int file_from)
 {
 	Elf32_Ehdr header;
-	ssize_t bytes_read = read(file_from, &header, sizeof(header));
+	ssize_t bytes_read;
+
+	bytes_read = read(file_from, &header, sizeof(header));
 
 	if (bytes_read == -1)
 	{
