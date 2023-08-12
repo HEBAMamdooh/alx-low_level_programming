@@ -65,7 +65,7 @@ void copy_files(int file_from, int file_to)
 	}
 }
 /**
- * copy_files - Close a file.
+ * close_files - Close a file.
  *
  * @file_from: to represent a file.
  * @file_to: to represent a file.
@@ -84,6 +84,66 @@ void close_files(int file_from, int file_to)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_to);
 		exit(100);
+	}
+}
+/**
+ * handle_special_cases - Cases to handle before runing.
+ *
+ * @file_from: to represent a file..
+ *
+ * Return: Nothing.
+ */
+void handle_special_cases(int file_from)
+{
+	Elf32_Ehdr header;
+	ssize_t bytes_read = read(file_from, &header, sizeof(header));
+
+	if (bytes_read == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file\n");
+		exit(98);
+	}
+
+	if (header.e_ident[EI_DATA] == ELFDATA2MSB)
+		printf("Case: Sparc Big Endian 32-bit ELF file\n");
+	else if (header.e_ident[EI_CLASS] == ELFCLASS32)
+	{
+		switch (header.e_ident[EI_OSABI])
+		{
+		case ELFOSABI_NETBSD:
+			printf("Case: NetBSD 32-bit ELF file\n");
+			break;
+		case ELFOSABI_SOLARIS:
+			printf("Case: Solaris 32-bit ELF file\n");
+			break;
+		case ELFOSABI_SORTIX:
+			printf("Case: Sortix 32-bit ELF file\n");
+			break;
+		}
+	}
+	else if (header.e_ident[EI_CLASS] == ELFCLASS64)
+	{
+		printf("Case: Ubuntu 64-bit ELF file\n");
+		header.e_version = 2;
+
+		if (lseek(file_from, 0, SEEK_SET) == -1)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't seek in file\n");
+			exit(98);
+		}
+
+		ssize_t bytes_written = write(file_from, &header, sizeof(header));
+		if (bytes_written == -1)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't writeto file\n");
+			exit(99);
+		}
+	}
+
+	if (lseek(file_from, 0, SEEK_SET) == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't seek in file\n");
+		exit(98);
 	}
 }
 
@@ -107,6 +167,8 @@ int main(int argc, char *argv[])
 
 	file_from = open_files(argv[1], argv[2]);
 	file_to = open_files(argv[1], argv[2]);
+
+	handle_special_cases(file_from);
 
 	copy_files(file_from, file_to);
 	close_files(file_from, file_to);
