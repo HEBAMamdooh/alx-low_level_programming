@@ -95,9 +95,7 @@ void close_files(int file_from, int file_to)
 void handle_special_cases(int file_from)
 {
 	Elf32_Ehdr header;
-	ssize_t bytes_read;
-
-	bytes_read = read(file_from, &header, sizeof(header));
+	ssize_t bytes_read = read(file_from, &header, sizeof(header));
 
 	if (bytes_read == -1)
 	{
@@ -111,14 +109,14 @@ void handle_special_cases(int file_from)
 	{
 		switch (header.e_ident[EI_OSABI])
 		{
+		case ELFOSABI_SYSV:
+			printf("Case: System V 32-bit ELF file\n");
+			break;
 		case ELFOSABI_NETBSD:
 			printf("Case: NetBSD 32-bit ELF file\n");
 			break;
 		case ELFOSABI_SOLARIS:
 			printf("Case: Solaris 32-bit ELF file\n");
-			break;
-		case ELFOSABI_SORTIX:
-			printf("Case: Sortix 32-bit ELF file\n");
 			break;
 		default:
 			printf("Case: Unknown 32-bit ELF file\n");
@@ -129,12 +127,6 @@ void handle_special_cases(int file_from)
 		printf("Case: Ubuntu 64-bit ELF file\n");
 	else
 		printf("Case: Unknown ELF file\n");
-
-	if (lseek(file_from, 0, SEEK_SET) == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't seek in file\n");
-		exit(98);
-	}
 }
 
 /**
