@@ -32,8 +32,8 @@ int create_file(const char *filename, char *text_content)
 	if (text_content != NULL)
 	{
 		size_t text_length = strlen(text_content);
+
 		bytes_written = write(file_descriptor, text_content, text_length);
-		
 		if (bytes_written == -1)
 		{
 			close(file_descriptor);
