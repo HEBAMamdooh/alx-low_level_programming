@@ -8,22 +8,16 @@
 #define ELFMAG1 'E'
 #define ELFMAG2 'L'
 #define ELFMAG3 'F'
-#define EI_CLASS 4
-#define EI_DATA 5
-#define EI_VERSION 6
-#define EI_OSABI 7
-#define EI_ABIVERSION 8
+#define ELFCLASS32 1
+#define ELFCLASS64 2
+#define ELFDATA2LSB 1
+#define ELFDATA2MSB 2
+#define ELFOSABI_SYSV 0
 #define ET_NONE 0
 #define ET_REL 1
 #define ET_EXEC 2
 #define ET_DYN 3
 #define ET_CORE 4
-#define ET_LOPROC 0xff00
-#define ET_HIPROC 0xffff
-#define ELFDATA2LSB 1
-#define ELFDATA2MSB 2
-#define ELFCLASS32 1
-#define ELFCLASS64 2
 
 typedef struct
 {
