@@ -1,14 +1,28 @@
-#include "main.h"
+#include <stdio.h>
+#include <math.h>
 
 /**
- * print_number -  prints a number.
+ * main - main function
  *
- * @n: function argument integer value
+ * Description: Find, print the largest prime
+ *		factor of number 612852475143
  *
- * Return: nothing
- **/
+ * Return: 0
+ */
 
-void print_number(int n)
+int main(void)
 {
-    _putchar(n);
+    int c;
+    long num = 612852475143;
+
+    for (c = (int)sqrt(num); c > 2; c++)
+    {
+        if (num % c == 0)
+        {
+            printf("%d\n", c);
+            break;
+        }
+    }
+
+    return (0);
 }
