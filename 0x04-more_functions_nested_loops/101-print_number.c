@@ -1,7 +1,9 @@
 #include "main.h"
 
 /**
- * print_numbers -  prints a number.
+ * print_number -  prints a number.
+ *
+ * @n: function argument integer value
  *
  * Return: nothing
  **/
