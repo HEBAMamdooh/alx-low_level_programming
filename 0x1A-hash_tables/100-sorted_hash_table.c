@@ -88,11 +88,14 @@ shash_table_t *shash_table_create(unsigned long int size)
  */
 int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 {
+	unsigned long int index;
+	shash_node_t *node, *new_node;
+
 	if (!ht || !key || !value || strlen(key) == 0)
 		return 0;
 
-	unsigned long int index = key_index((const unsigned char *)key, ht->size);
-	shash_node_t *node = ht->array[index];
+	index = key_index((const unsigned char *)key, ht->size);
+	node = ht->array[index];
 
 	/* Check if key already exists */
 	while (node)
@@ -107,7 +110,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	}
 
 	/*Create new node*/ 
-	shash_node_t *new_node = create_shash_node(key, value);
+	new_node = create_shash_node(key, value);
 	if (!new_node)
 		return 0;
 
