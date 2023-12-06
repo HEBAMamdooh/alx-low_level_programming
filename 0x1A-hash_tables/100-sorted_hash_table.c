@@ -158,10 +158,12 @@ char *shash_table_get(const shash_table_t *ht, const char *key)
  */
 void shash_table_print(const shash_table_t *ht)
 {
+	shash_node_t *node;
+
 	if (!ht)
 		return;
 
-	shash_node_t *node = ht->shead;
+	node = ht->shead;
 	printf("{");
 	while (node)
 	{
@@ -179,10 +181,12 @@ void shash_table_print(const shash_table_t *ht)
  */
 void shash_table_print_rev(const shash_table_t *ht)
 {
+	shash_node_t *node;
+
 	if (!ht)
 		return;
 
-	shash_node_t *node = ht->stail;
+	node = ht->stail;
 	printf("{");
 	while (node)
 	{
