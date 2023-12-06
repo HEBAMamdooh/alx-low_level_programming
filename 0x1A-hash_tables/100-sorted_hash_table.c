@@ -1,5 +1,11 @@
 #include "hash_tables.h"
 
+/**
+ * shash_table_create - Creates a new sorted hash table.
+ * @size: The size of the array of the hash table.
+ *
+ * Return: A pointer to the newly created hash table.
+ */
 shash_table_t *shash_table_create(unsigned long int size) {
 	shash_table_t *table = malloc(sizeof(shash_table_t));
 	if (!table)
@@ -18,6 +24,14 @@ shash_table_t *shash_table_create(unsigned long int size) {
 	return table;
 }
 
+/**
+ * shash_table_set - Adds an element to the sorted hash table.
+ * @ht: A pointer to the sorted hash table.
+ * @key: The key, cannot be an empty string.
+ * @value: The value associated with the key.
+ *
+ * Return: 1 on success, 0 on failure.
+ */
 int shash_table_set(shash_table_t *ht, const char *key, const char *value) {
 	if (!ht || !key || !value || strlen(key) == 0)
 		return 0;
@@ -50,6 +64,15 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value) {
 	return 1;
 }
 
+/**
+ * shash_table_get - Retrieves a value associated
+*		with a key in a sorted hash table.
+ *
+ * @ht: The hash table to look into.
+ * @key: The key to look for.
+ *
+ * Return: The value associated with the element, or NULL.
+ */
 char *shash_table_get(const shash_table_t *ht, const char *key) {
 	if (!ht || !key)
 		return NULL;
@@ -66,6 +89,10 @@ char *shash_table_get(const shash_table_t *ht, const char *key) {
 	return NULL;
 }
 
+/**
+ * shash_table_print - Prints a sorted hash table.
+ * @ht: The hash table to print.
+ */
 void shash_table_print(const shash_table_t *ht) {
 	if (!ht)
 		return;
@@ -81,6 +108,10 @@ void shash_table_print(const shash_table_t *ht) {
 	printf("}\n");
 }
 
+/**
+ * shash_table_print_rev - Prints a sorted hash table in reverse order.
+ * @ht: The hash table to print.
+ */
 void shash_table_print_rev(const shash_table_t *ht) {
 	if (!ht)
 		return;
@@ -96,6 +127,10 @@ void shash_table_print_rev(const shash_table_t *ht) {
 	printf("}\n");
 }
 
+/**
+ * shash_table_delete - Deletes a sorted hash table.
+ * @ht: The hash table to delete.
+ */
 void shash_table_delete(shash_table_t *ht) {
 	if (!ht)
 		return;
