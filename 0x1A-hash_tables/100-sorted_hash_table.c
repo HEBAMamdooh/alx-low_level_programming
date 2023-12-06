@@ -133,11 +133,14 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
  */
 char *shash_table_get(const shash_table_t *ht, const char *key)
 {
+	unsigned long int index;
+	shash_node_t *node;
+
 	if (!ht || !key)
 		return NULL;
 
-	unsigned long int index = key_index((const unsigned char *)key, ht->size);
-	shash_node_t *node = ht->array[index];
+	index = key_index((const unsigned char *)key, ht->size);
+	node = ht->array[index];
 
 	while (node)
 	{
