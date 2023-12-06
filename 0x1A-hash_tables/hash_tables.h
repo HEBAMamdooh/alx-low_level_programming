@@ -1,7 +1,7 @@
 #ifndef HASH_TABLES
 #define HASH_TABLES
 
-#include <stdlib.h> /* NULL */
+#include <stdlib.h> /* malloc, free */
 #include <stdio.h> /* printf */
 #include <string.h> /* strlen */
 
@@ -43,7 +43,7 @@ char *hash_table_get(const hash_table_t *ht, const char *key);
 void hash_table_print(const hash_table_t *ht);
 void hash_table_delete(hash_table_t *ht);
 
-/* structures and function prototypes for file 100 */
+/* structures and function prototypes for task 7*/
 /**
  * struct shash_node_s - Node of a sorted hash table
  *
@@ -88,4 +88,4 @@ void shash_table_print(const shash_table_t *ht);
 void shash_table_print_rev(const shash_table_t *ht);
 void shash_table_delete(shash_table_t *ht);
 
-#endif
+#endif /* HASH_TABLES_H */
