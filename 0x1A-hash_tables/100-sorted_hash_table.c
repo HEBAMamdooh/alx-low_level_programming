@@ -1,6 +1,60 @@
 #include "hash_tables.h"
 
 /**
+ * create_shash_node - Creates a new sorted hash table node
+ * @key: The key for the new node
+ * @value: The value for the new node
+ * Return: Pointer to the new node, or NULL on failure
+ */
+static shash_node_t *create_shash_node(const char *key, const char *value)
+{
+	shash_node_t *node = malloc(sizeof(shash_node_t));
+	if (!node)
+		return NULL;
+
+	node->key = strdup(key);
+	node->value = strdup(value);
+	if (!node->key || !node->value)
+	{
+		free(node->key);
+		free(node->value);
+		free(node);
+		return NULL;
+	}
+
+	node->next = NULL;
+	node->sprev = NULL;
+	node->snext = NULL;
+
+	return node;
+}
+
+/**
+ * insert_sorted - Inserts a node into the sorted linked list of a sorted hash table
+ * @ht: The sorted hash table
+ * @node: The node to insert
+ */
+static void insert_sorted(shash_table_t *ht, shash_node_t *node)
+{
+	shash_node_t *current, *prev = NULL;
+	for (current = ht->shead; current != NULL && strcmp(current->key, node->key) < 0; prev = current, current = current->snext)
+		;
+
+	node->sprev = prev;
+	node->snext = current;
+
+	if (prev)
+		prev->snext = node;
+	else
+		ht->shead = node;
+
+	if (current)
+		current->sprev = node;
+	else
+		ht->stail = node;
+}
+
+/**
  * shash_table_create - Creates a sorted hash table
  * @size: The size of the array
  * Return: A pointer to the newly created hash table
@@ -158,49 +212,4 @@ void shash_table_delete(shash_table_t *ht)
 
 	free(ht->array);
 	free(ht);
-}
-
-/* Helper functions */
-
-static shash_node_t *create_shash_node(const char *key, const char *value)
-{
-	shash_node_t *node = malloc(sizeof(shash_node_t));
-	if (!node)
-		return NULL;
-
-	node->key = strdup(key);
-	node->value = strdup(value);
-	if (!node->key || !node->value)
-	{
-		free(node->key);
-		free(node->value);
-		free(node);
-		return NULL;
-	}
-
-	node->next = NULL;
-	node->sprev = NULL;
-	node->snext = NULL;
-
-	return node;
-}
-
-static void insert_sorted(shash_table_t *ht, shash_node_t *node)
-{
-	shash_node_t *current, *prev = NULL;
-	for (current = ht->shead; current != NULL && strcmp(current->key, node->key) < 0; prev = current, current = current->snext)
-		;
-
-	node->sprev = prev;
-	node->snext = current;
-
-	if (prev)
-		prev->snext = node;
-	else
-		ht->shead = node;
-
-	if (current)
-		current->sprev = node;
-	else
-		ht->stail = node;
 }
